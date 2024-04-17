@@ -1,0 +1,91 @@
+name: 'Setup OceanBase Community Edition'
+description: 'Setup a standalone instance of OceanBase Community Edition'
+
+branding:
+  icon: 'database'
+  color: 'blue'
+
+inputs:
+  image_tag:
+    description: 'The Docker image tag of OceanBase CE.'
+    required: false
+    default: 'latest'
+  container_name:
+    description: 'The name of OceanBase container.'
+    required: false
+    default: 'oceanbase-ce'
+  network:
+    description: 'The network used by OceanBase container.'
+    required: false
+    default: ''
+  sql_port:
+    description: 'The SQL port of OceanBase container.'
+    required: false
+    default: '2881'
+  rpc_port:
+    description: 'The RPC port of OceanBase container.'
+    required: false
+    default: '2882'
+  mode:
+    description: 'The deployment mode of OceanBase container.'
+    required: false
+    default: 'slim'
+  fastboot:
+    description: 'Whether to use fastboot mode to start the OceanBase container.'
+    required: false
+    default: 'true'
+  sys_root_password:
+    description: 'The password of sys tenant root user.'
+    required: false
+    default: ''
+  cluster_name:
+    description: 'The cluster name of OceanBase container.'
+    required: false
+    default: 'obcluster'
+  tenant_name:
+    description: 'The name of non-system tenant to be created.'
+    required: false
+    default: 'test'
+  memory_limit:
+    description: 'Cluster configuration memory_limit.'
+    required: false
+    default: '6G'
+  system_memory:
+    description: 'Cluster configuration system_memory.'
+    required: false
+    default: '1G'
+  datafile_size:
+    description: 'Cluster configuration datafile_size.'
+    required: false
+    default: '5G'
+  log_disk_size:
+    description: 'Cluster configuration log_disk_size.'
+    required: false
+    default: '5G'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Start the OceanBase Docker Container
+      run: ${{ github.action_path }}/scripts/container_startup.sh
+      shell: bash
+      env:
+        IMAGE_TAG: ${{ inputs.image_tag }}
+        CONTAINER_NAME: ${{ inputs.container_name }}
+        NETWORK: ${{ inputs.network }}
+        SQL_PORT: ${{ inputs.sql_port }}
+        RPC_PORT: ${{ inputs.rpc_port }}
+        MODE: ${{ inputs.mode }}
+        FASTBOOT: ${{ inputs.fastboot }}
+        SYS_ROOT_PASSWORD: ${{ inputs.sys_root_password }}
+        CLUSTER_NAME: ${{ inputs.cluster_name }}
+        TENANT_NAME: ${{ inputs.tenant_name }}
+        MEMORY_LIMIT: ${{ inputs.memory_limit }}
+        SYSTEM_MEMORY: ${{ inputs.system_memory }}
+        DATAFILE_SIZE: ${{ inputs.datafile_size }}
+        LOG_DISK_SIZE: ${{ inputs.log_disk_size }}
+    - name: Follow the Log of OceanBase Container
+      run: ${{ github.action_path }}/scripts/container_follow_log.sh
+      shell: bash
+      env:
+        CONTAINER_NAME: ${{ inputs.container_name }}
