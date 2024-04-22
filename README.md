@@ -8,27 +8,51 @@ This [GitHub Action](https://github.com/features/actions) sets up a Docker conta
 steps:
   - uses: oceanbase/setup-oceanbase-ce@v1.0
     with:
-      image_tag: 'latest'
+      # The tag of OceanBase CE Docker image.
+      # Default: latest
+      image_tag: ''
+      # The name of started Docker container.
+      # Default: oceanbase-ce
+      container_name: ''
+      # The network used by OceanBase container https://docs.docker.com/network.
+      # Default: null
+      network: ''
+      # The SQL port of OceanBase container.
+      # Default: 2881
+      sql_port: ''
+      # The RPC port of OceanBase container.
+      # Default: 2882
+      rpc_port: ''
+      # The deployment mode of OceanBase container. Should be 'mini', 'slim' or 'normal'.
+      # Default: slim
+      mode: ''
+      # Whether to use fastboot mode to start the OceanBase container.
+      # Default: true
+      fastboot: ''
+      # The password of sys tenant root user.
+      # Default: null
+      sys_root_password: ''
+      # The cluster name of OceanBase instance.
+      # Default: obcluster
+      cluster_name: ''
+      # The name of non-system tenant to be created.
+      # Default: test
+      tenant_name: ''
+      # Cluster configuration 'memory_limit'.
+      # Default: 6G
+      memory_limit: ''
+      # Cluster configuration 'system_memory'.
+      # Default: 1G
+      system_memory: ''
+      # Cluster configuration 'datafile_size'.
+      # Default: 5G
+      datafile_size: ''
+      # Cluster configuration 'log_disk_size'.
+      # Default: 5G
+      log_disk_size: ''
 ```
 
-| Option            | Required | Default Value | Description                                                    |
-|-------------------|----------|---------------|----------------------------------------------------------------|
-| image_tag         | false    | latest        | The Docker image tag of OceanBase CE.                          |
-| container_name    | false    | oceanbase-ce  | The name of OceanBase container.                               |
-| network           | false    |               | The network used by OceanBase container.                       |
-| sql_port          | false    | 2881          | The SQL port of OceanBase container.                           |
-| rpc_port          | false    | 2882          | The RPC port of OceanBase container.                           |
-| mode              | false    | slim          | The deployment mode of OceanBase container.                    |
-| fastboot          | false    | true          | Whether to use fastboot mode to start the OceanBase container. |
-| sys_root_password | false    |               | The password of sys tenant root user.                          |
-| cluster_name      | false    | obcluster     | The cluster name of OceanBase container.                       |
-| tenant_name       | false    | test          | The name of non-system tenant to be created.                   |
-| memory_limit      | false    | 6G            | Cluster configuration memory_limit.                            |
-| system_memory     | false    | 1G            | Cluster configuration system_memory.                           |
-| datafile_size     | false    | 5G            | Cluster configuration datafile_size.                           |
-| log_disk_size     | false    | 5G            | Cluster configuration log_disk_size.                           |
-
-See [Docker Hub](https://hub.docker.com/r/oceanbase/oceanbase-ce) for available image tags.
+See [Docker Hub](https://hub.docker.com/r/oceanbase/oceanbase-ce) for more details about OceanBase Docker image.
 
 ## License
 
