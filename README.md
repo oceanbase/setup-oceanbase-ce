@@ -33,7 +33,7 @@ steps:
       # Default: null
       sys_root_password: ''
       # The cluster name of OceanBase instance.
-      # Default: obcluster
+      # Default: github-action
       cluster_name: ''
       # The name of non-system tenant to be created.
       # Default: test

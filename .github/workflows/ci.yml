@@ -20,6 +20,5 @@ jobs:
           container_name: 'test-db'
           sql_port: '12881'
           rpc_port: '12882'
-          cluster_name: 'github-action'
       - name: Try to query the server version
         run: mysql -h127.0.0.1 -P12881 -uroot -e 'select version()'

@@ -41,7 +41,7 @@ inputs:
   cluster_name:
     description: 'The cluster name of OceanBase container.'
     required: false
-    default: 'obcluster'
+    default: 'github-action'
   tenant_name:
     description: 'The name of non-system tenant to be created.'
     required: false
