@@ -6,7 +6,7 @@ This [GitHub Action](https://github.com/features/actions) sets up a Docker conta
 
 ```yaml
 steps:
-  - uses: oceanbase/setup-oceanbase-ce@v1.0
+  - uses: oceanbase/setup-oceanbase-ce@v1
     with:
       # The tag of OceanBase CE Docker image.
       # Default: latest
