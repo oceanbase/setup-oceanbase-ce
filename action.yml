@@ -6,6 +6,10 @@ branding:
   color: 'blue'
 
 inputs:
+  image_name:
+    description: 'The Docker image name of OceanBase CE.'
+    required: false
+    default: 'oceanbase/oceanbase-ce'
   image_tag:
     description: 'The Docker image tag of OceanBase CE.'
     required: false
@@ -70,6 +74,7 @@ runs:
       run: ${{ github.action_path }}/scripts/container_startup.sh
       shell: bash
       env:
+        IMAGE_NAME: ${{ inputs.image_name }}
         IMAGE_TAG: ${{ inputs.image_tag }}
         CONTAINER_NAME: ${{ inputs.container_name }}
         NETWORK: ${{ inputs.network }}

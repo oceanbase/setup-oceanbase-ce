@@ -31,7 +31,7 @@ DOCKER_RUN_OPTIONS=(
   "${OB_ENVIRONMENT_OPTIONS[@]}"
 )
 
-DOCKER_RUN_CMD="docker run ${DOCKER_RUN_OPTIONS[@]} -d oceanbase/oceanbase-ce:${IMAGE_TAG}"
+DOCKER_RUN_CMD="docker run ${DOCKER_RUN_OPTIONS[@]} -d ${IMAGE_NAME}:${IMAGE_TAG}"
 
 echo "$DOCKER_RUN_CMD"
 eval "$DOCKER_RUN_CMD"
