@@ -8,6 +8,9 @@ This [GitHub Action](https://github.com/features/actions) sets up a Docker conta
 steps:
   - uses: oceanbase/setup-oceanbase-ce@v1
     with:
+      # The name of OceanBase CE Docker image.
+      # Default: oceanbase/oceanbase-ce
+      image_name: ''
       # The tag of OceanBase CE Docker image.
       # Default: latest
       image_tag: ''
