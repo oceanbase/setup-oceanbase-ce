@@ -66,6 +66,10 @@ inputs:
     description: 'Cluster configuration log_disk_size.'
     required: false
     default: '5G'
+  init_sql:
+    description: 'SQL text used to initialize the test tenant.'
+    required: false
+    default: ''
 
 runs:
   using: "composite"
@@ -89,6 +93,7 @@ runs:
         SYSTEM_MEMORY: ${{ inputs.system_memory }}
         DATAFILE_SIZE: ${{ inputs.datafile_size }}
         LOG_DISK_SIZE: ${{ inputs.log_disk_size }}
+        INIT_SQL: ${{ inputs.init_sql }}
     - name: Follow the Log of OceanBase Container
       run: ${{ github.action_path }}/scripts/container_follow_log.sh
       shell: bash

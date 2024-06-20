@@ -20,5 +20,6 @@ jobs:
           container_name: 'test-db'
           sql_port: '12881'
           rpc_port: '12882'
+          init_sql: "ALTER USER root IDENTIFIED BY '123456'"
       - name: Try to query the server version
-        run: mysql -h127.0.0.1 -P12881 -uroot -e 'select version()'
+        run: mysql -h127.0.0.1 -P12881 -uroot@test -p123456 -e 'select version()'

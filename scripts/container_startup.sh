@@ -25,6 +25,12 @@ if [ -n "${SYS_ROOT_PASSWORD}" ]; then
   OB_ENVIRONMENT_OPTIONS+=("-e OB_ROOT_PASSWORD=${SYS_ROOT_PASSWORD}")
 fi
 
+if [ -n "${INIT_SQL}" ]; then
+  mkdir sql
+  echo "${INIT_SQL}" >> ./sql/init.sql
+  OB_ENVIRONMENT_OPTIONS+=("-v ${PWD}/sql:/root/boot/init.d")
+fi
+
 DOCKER_RUN_OPTIONS=(
   "--name ${CONTAINER_NAME}"
   "${NETWORK_OPTION}"
