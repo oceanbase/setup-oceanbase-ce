@@ -53,6 +53,9 @@ steps:
       # Cluster configuration 'log_disk_size'.
       # Default: 5G
       log_disk_size: ''
+      # SQL text used to initialize the test tenant.
+      # Default: null
+      init_sql: ''
 ```
 
 See [Docker Hub](https://hub.docker.com/r/oceanbase/oceanbase-ce) for more details about OceanBase Docker image.
