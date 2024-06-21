@@ -29,9 +29,6 @@ steps:
       # The deployment mode of OceanBase container. Should be 'mini', 'slim' or 'normal'.
       # Default: slim
       mode: ''
-      # Whether to use fastboot mode to start the OceanBase container.
-      # Default: true
-      fastboot: ''
       # The password of sys tenant root user.
       # Default: null
       sys_root_password: ''

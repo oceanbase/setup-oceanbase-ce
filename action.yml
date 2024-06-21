@@ -34,10 +34,6 @@ inputs:
     description: 'The deployment mode of OceanBase container.'
     required: false
     default: 'slim'
-  fastboot:
-    description: 'Whether to use fastboot mode to start the OceanBase container.'
-    required: false
-    default: 'true'
   sys_root_password:
     description: 'The password of sys tenant root user.'
     required: false
@@ -85,7 +81,6 @@ runs:
         SQL_PORT: ${{ inputs.sql_port }}
         RPC_PORT: ${{ inputs.rpc_port }}
         MODE: ${{ inputs.mode }}
-        FASTBOOT: ${{ inputs.fastboot }}
         SYS_ROOT_PASSWORD: ${{ inputs.sys_root_password }}
         CLUSTER_NAME: ${{ inputs.cluster_name }}
         TENANT_NAME: ${{ inputs.tenant_name }}
