@@ -46,6 +46,10 @@ inputs:
     description: 'The name of non-system tenant to be created.'
     required: false
     default: 'test'
+  tenant_root_password:
+    description: 'The password of root user in created non-system tenant.'
+    required: false
+    default: ''
   memory_limit:
     description: 'Cluster configuration memory_limit.'
     required: false
@@ -84,6 +88,7 @@ runs:
         SYS_ROOT_PASSWORD: ${{ inputs.sys_root_password }}
         CLUSTER_NAME: ${{ inputs.cluster_name }}
         TENANT_NAME: ${{ inputs.tenant_name }}
+        TENANT_ROOT_PASSWORD: ${{ inputs.tenant_root_password }}
         MEMORY_LIMIT: ${{ inputs.memory_limit }}
         SYSTEM_MEMORY: ${{ inputs.system_memory }}
         DATAFILE_SIZE: ${{ inputs.datafile_size }}
