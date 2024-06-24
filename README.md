@@ -38,6 +38,9 @@ steps:
       # The name of non-system tenant to be created.
       # Default: test
       tenant_name: ''
+      # The password of root user in created non-system tenant.
+      # Default: null
+      tenant_root_password: ''
       # Cluster configuration 'memory_limit'.
       # Default: 6G
       memory_limit: ''
